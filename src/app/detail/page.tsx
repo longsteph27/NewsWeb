@@ -4,9 +4,7 @@ import { useEffect, useState } from "react"
 import { notFound, useSearchParams } from 'next/navigation';
 import React from 'react'
 import { getPostData } from '@/api/route';
-type Props = {
-    searchParams: string;
-}
+
 function DetailPage() {
     const searchParams = useSearchParams();
     if (!searchParams) {
@@ -15,8 +13,9 @@ function DetailPage() {
     const [postData, setPostData] = useState<posts>();
     useEffect(() => {
         const getNewsData = async () => {
-            const newsResponse: posts = await getPostData(searchParams.get('id'));
-            setPostData(newsResponse);
+            const response = await fetch(`http://localhost:4000/api/posts/${searchParams.get("id")}?locale=en`);
+            const postData: posts = await response.json();
+            setPostData(postData);
         }
         getNewsData();
     }, []);
@@ -35,7 +34,7 @@ function DetailPage() {
                         alt='post_img'
                         className='w-full rounded-lg mt-10' />
                 )}
-                <div className='pt-12 bg-slate-200 px-7'>
+                <div className='pt-12 bg-slate-200 px-7 pb-10'>
                     <p className='font-des text-[20px] font-extralight tracking-wide'> {postData?.description} </p>
                 </div>
 

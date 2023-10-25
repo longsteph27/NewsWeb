@@ -102,7 +102,7 @@
 }
 
 .news_detail{
-  @apply mt-48 lg:mx-44 flex mx-14 flex-col
+  @apply mt-48 lg:mx-44 flex mx-14 flex-col mb-16
 }
 
 

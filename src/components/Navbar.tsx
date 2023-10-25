@@ -14,7 +14,7 @@ const Navbar = () => {
         <div
             className='ease-in duration-300 fixed top-0 right-0 left-0 z-10'>
             <div className={isclick
-                ? ' absolute top-0 right-0 left-0 bottom-0 bg-black/40 '
+                ? ' fixed top-0 right-0 left-0 bottom-0 bg-black/40 '
                 : ' fixed top-0 right-0 left-0 bottom-0 hidden bg-transparent'} />
             <div className=" flex-between p-4 px-7 z-0 w-full bg-navbar">
 
@@ -28,9 +28,9 @@ const Navbar = () => {
 
                 <div className='hidden md:flex md:justify-end md:items-center'>
 
-                    <ul className='md:flex font-semibold space-x-7'>
+                    <ul className='md:flex text-slate-800  font-semibold space-x-7 uppercase text-[14px]'>
                         <li >
-                            <Link href={'/'}>Home</Link>
+                            <Link href={'/'}>HOME</Link>
                         </li>
                         <li className=''>
                             <Link href={'/EPL'}>Premier league</Link>
